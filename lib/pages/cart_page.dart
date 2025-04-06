@@ -29,7 +29,7 @@ class _CartPageState extends State<CartPage> {
                     "Your Cart",
                     style: TextStyle(fontSize: 23, fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(height: 25,),
+                  SizedBox(height: 25),
                   Expanded(
                     child: ListView.builder(
                       itemCount: value.cart.length,
@@ -42,6 +42,13 @@ class _CartPageState extends State<CartPage> {
                         );
                       },
                     ),
+                  ),
+                  MaterialButton(
+                    minWidth: 300,
+                    height: 50,
+                    child: Text('PAY', style: TextStyle(color: Colors.white)),
+                    color: Colors.brown,
+                    onPressed: () => {},
                   ),
                 ],
               ),
