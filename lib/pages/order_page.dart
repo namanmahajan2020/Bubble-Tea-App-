@@ -1,5 +1,7 @@
 import 'package:bubble_tea_app/models/drink.dart';
+import 'package:bubble_tea_app/models/shop.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class OrderPage extends StatefulWidget {
   final Drink drink;
@@ -31,6 +33,25 @@ class _OrderPageState extends State<OrderPage> {
     });
   }
 
+  void addToCart() {
+    Provider.of<bubbleTeaShop>(context, listen: false).addToCart(widget.drink);
+    Navigator.pop(context);
+    showDialog(
+      context: context,
+      builder:
+          (context) => AlertDialog(
+            title: Text(
+              "Successfully added to cart",
+              style: TextStyle(
+                color: Colors.brown,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +74,17 @@ class _OrderPageState extends State<OrderPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(width: 100, child: Text("Sweet")),
+                    SizedBox(
+                      width: 70,
+                      child: Text(
+                        "Sweet",
+                        style: TextStyle(
+                          color: Colors.white70,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: Slider(
                         value: sweetValue,
@@ -69,7 +100,17 @@ class _OrderPageState extends State<OrderPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(width: 100, child: Text("Ice")),
+                    SizedBox(
+                      width: 70,
+                      child: Text(
+                        "Ice",
+                        style: TextStyle(
+                          color: Colors.white70,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: Slider(
                         value: iceValue,
@@ -85,7 +126,17 @@ class _OrderPageState extends State<OrderPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(width: 100, child: Text("Pearl")),
+                    SizedBox(
+                      width: 70,
+                      child: Text(
+                        "Pearl",
+                        style: TextStyle(
+                          color: Colors.white70,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: Slider(
                         value: pearlValue,
@@ -101,7 +152,11 @@ class _OrderPageState extends State<OrderPage> {
               ],
             ),
           ),
-          MaterialButton(child: Text('Add to cart'), onPressed: () {}),
+          MaterialButton(
+            child: Text('Add to cart', style: TextStyle(color: Colors.white)),
+            color: Colors.brown,
+            onPressed: addToCart,
+          ),
         ],
       ),
     );

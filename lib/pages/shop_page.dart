@@ -16,7 +16,7 @@ class _ShopPageState extends State<ShopPage> {
   void goToOrderPage(Drink drink) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => OrderPage(drink:drink,)),
+      MaterialPageRoute(builder: (context) => OrderPage(drink: drink)),
     );
   }
 
@@ -29,7 +29,11 @@ class _ShopPageState extends State<ShopPage> {
               padding: const EdgeInsets.all(25.0),
               child: Column(
                 children: [
-                  Text("Bubble Tea Shop", style: TextStyle(fontSize: 20)),
+                  Text(
+                    "Bubble Tea Shop",
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(height: 25),
                   Expanded(
                     child: ListView.builder(
                       itemCount: value.shop.length,
