@@ -41,7 +41,7 @@ class _ShopPageState extends State<ShopPage> {
                         Drink individualDrink = value.shop[index];
                         return DrinkTile(
                           drink: individualDrink,
-                          onTap: () => goToOrderPage(individualDrink),
+                          onTap: () => goToOrderPage(individualDrink), trailing: Icon(Icons.arrow_forward),
                         );
                       },
                     ),
