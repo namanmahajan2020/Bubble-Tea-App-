@@ -1,5 +1,8 @@
 import 'package:bubble_tea_app/pages/bottom_navbar.dart';
+import 'package:bubble_tea_app/pages/cart_page.dart';
+import 'package:bubble_tea_app/pages/shop_page.dart';
 import 'package:flutter/material.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -8,10 +11,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+  void navigateBottomBar(int newIndex) {
+    setState(() {
+      _selectedIndex = newIndex;
+    });
+  }
+
+  final List<Widget> _pages = [const ShopPage(),const CartPage()];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavbar(),
+      backgroundColor: Colors.brown[100],
+      bottomNavigationBar: BottomNavbar(
+        onTabChange: (index) => navigateBottomBar(index),
+      ),
+      body: _pages[_selectedIndex],
     );
   }
 }
