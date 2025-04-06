@@ -1,4 +1,4 @@
-import 'package:bubble_tea_app/pages/bottom_navbar.dart';
+import 'package:bubble_tea_app/components/bottom_navbar.dart';
 import 'package:bubble_tea_app/pages/cart_page.dart';
 import 'package:bubble_tea_app/pages/shop_page.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[200],
+      backgroundColor: Colors.brown[300],
       bottomNavigationBar: BottomNavbar(
         onTabChange: (index) => navigateBottomBar(index),
       ),

@@ -5,7 +5,7 @@ import 'drink.dart';
 class bubbleTeaShop extends ChangeNotifier{
   final List<Drink> _shop = [
     Drink(
-      name: "Perl Milk Tea",
+      name: "Pearl Milk Tea",
       price: "4.00",
       imagePath: "lib/images/bubble-tea.png",
     ),
